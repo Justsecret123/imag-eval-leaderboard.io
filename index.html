@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMAG-EVAL Leaderboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&
+
+<style>
+:root{
+    --primary:#4f46e5;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#111827;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+.hero{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:0.95;
+    font-size:1.15rem;
+}
+
+.container{
+    max-width:1300px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:24px;
+    box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+.settings{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.setting{
+    background:#f3f4f6;
+    padding:15px;
+    border-radius:10px;
+}
+
+.setting strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#eef2ff;
+    padding:14px;
+    text-align:center;
+}
+
+td{
+    padding:14px;
+    text-align:center;
+    border-top:1px solid var(--border);
+}
+
+.gold{
+    background:rgba(255,215,0,0.12);
+}
+
+.silver{
+    background:rgba(192,192,192,0.12);
+}
+
+.bronze{
+    background:rgba(205,127,50,0.12);
+}
+
+.best{
+    font-weight:700;
+    color:#4f46e5;
+}
+
+.metric{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.metric div{
+    background:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:30px;
+    padding-bottom:40px;
+}
+
+a{
+    color:#4f46e5;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:900px){
+    table{
+        font-size:0.85rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+    <h1>IMAG-EVAL</h1>
+    <p>Leaderboard for Interpretable Text-to-Image Instruction Following Evaluation</p>
+</section>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📊 Evaluation Settings</h2>
+
+        <div class="settings">
+
+            <div class="setting">
+                <strong>Benchmark</strong>
+                All Skills
+            </div>
+
+            <div class="setting">
+                <strong>Skills</strong>
+                Counting + Spatial + Size + Color + Emotion + Text + Cohesiveness
+            </div>
+
+            <div class="setting">
+                <strong>Resolution</strong>
+                1024 × 1024
+            </div>
+
+            <div class="setting">
+                <strong>Annotation Type</strong>
+                Manual
+            </div>
+
+            <div class="setting">
+                <strong>Seed</strong>
+                42
+            </div>
+
+            <div class="setting">
+                <strong>Inference Parameters</strong>
+                Default values reported in each model's technical documentation
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <h2>🏆 Leaderboard</h2>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Model</th>
+                <th>Counting</th>
+                <th>Spatial</th>
+                <th>Size</th>
+                <th>Emotion</th>
+                <th>Color</th>
+                <th>Cohesiveness</th>
+                <th>Text (WER ↓)</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr class="gold">
+                <td>🥇</td>
+                <td><b>Gemini-Flash-3.1-preview</b></td>
+                <td class="best">0.70</td>
+                <td>0.73</td>
+                <td class="best">0.85</td>
+                <td class="best">0.98</td>
+                <td>0.96</td>
+                <td>0.68</td>
+                <td class="best">0.29</td>
+            </tr>
+
+            <tr class="silver">
+                <td>🥈</td>
+                <td><b>Z-Image-Turbo</b></td>
+                <td>0.55</td>
+                <td class="best">0.79</td>
+                <td>0.84</td>
+                <td>0.80</td>
+                <td class="best">0.98</td>
+                <td>0.50</td>
+                <td>0.49</td>
+            </tr>
+
+            <tr class="bronze">
+                <td>🥉</td>
+                <td><b>FLUX 1.0</b></td>
+                <td>0.56</td>
+                <td>0.69</td>
+                <td>0.62</td>
+                <td>0.67</td>
+                <td>0.88</td>
+                <td>0.76</td>
+                <td>2.46</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>DALL·E 3</td>
+                <td>0.42</td>
+                <td>0.59</td>
+                <td>0.70</td>
+                <td>0.28</td>
+                <td>0.69</td>
+                <td class="best">0.99</td>
+                <td>4.25</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Stable Cascade</td>
+                <td>0.13</td>
+                <td>&lt;0.01</td>
+                <td>0.20</td>
+                <td>0.10</td>
+                <td>0.36</td>
+                <td>0.35</td>
+                <td>4.31</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>Stable Diffusion XL</td>
+                <td>0.17</td>
+                <td>0.34</td>
+                <td>0.15</td>
+                <td>0.09</td>
+                <td>0.16</td>
+                <td>0.26</td>
+                <td>5.55</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2>🧠 Evaluated Skills</h2>
+
+        <div class="metric">
+            <div>🔢 Counting</div>
+            <div>📍 Spatial Relations</div>
+            <div>📏 Size Relations</div>
+            <div>🎨 Color Attribution</div>
+            <div>😊 Emotion Attribution</div>
+            <div>🔤 Text Rendering</div>
+            <div>🧩 Cohesiveness</div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h2>📨 Submit Results</h2>
+
+        <p>
+            Submit new model results via GitHub Pull Request.
+            Please report model version, inference settings, generated images,
+            and evaluation outputs.
+        </p>
+    </div>
+
+    <div class="footer">
+        Built with ❤️ for the IMAG-EVAL benchmark • EMNLP 2026
+    </div>
+
+</div>
+
+</body>
+</html>
