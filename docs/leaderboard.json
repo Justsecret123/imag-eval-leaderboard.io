@@ -1,0 +1,68 @@
+[
+  {
+    "rank":"🥇",
+    "model":"Gemini-Flash-3.1-preview",
+    "counting":"0.70",
+    "spatial":"0.73",
+    "size":"0.85",
+    "emotion":"0.98",
+    "color":"0.96",
+    "cohesiveness":"0.68",
+    "wer":"0.29"
+  },
+  {
+    "rank":"🥈",
+    "model":"Z-Image-Turbo",
+    "counting":"0.55",
+    "spatial":"0.79",
+    "size":"0.84",
+    "emotion":"0.80",
+    "color":"0.98",
+    "cohesiveness":"0.50",
+    "wer":"0.49"
+  },
+  {
+    "rank":"🥉",
+    "model":"FLUX 1.0",
+    "counting":"0.56",
+    "spatial":"0.69",
+    "size":"0.62",
+    "emotion":"0.67",
+    "color":"0.88",
+    "cohesiveness":"0.76",
+    "wer":"2.46"
+  },
+  {
+    "rank":"4",
+    "model":"DALL·E 3",
+    "counting":"0.42",
+    "spatial":"0.59",
+    "size":"0.70",
+    "emotion":"0.28",
+    "color":"0.69",
+    "cohesiveness":"0.99",
+    "wer":"4.25"
+  },
+  {
+    "rank":"5",
+    "model":"Stable Cascade",
+    "counting":"0.13",
+    "spatial":"<0.01",
+    "size":"0.20",
+    "emotion":"0.10",
+    "color":"0.36",
+    "cohesiveness":"0.35",
+    "wer":"4.31"
+  },
+  {
+    "rank":"6",
+    "model":"Stable Diffusion XL",
+    "counting":"0.17",
+    "spatial":"0.34",
+    "size":"0.15",
+    "emotion":"0.09",
+    "color":"0.16",
+    "cohesiveness":"0.26",
+    "wer":"5.55"
+  }
+]

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IMAG-EVAL Leaderboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.cssn class="hero">
+
+        <h1>IMAG-EVAL</h1>
+
+        <p>
+            Interpretable Text-to-Image Instruction Following Evaluation
+        </p>
+
+        <div class="hero-badges">
+            <span class="badge">🏆 EMNLP 2026</span>
+            <span class="badge">📊 1,140 Prompts</span>
+            <span class="badge">🔬 8,842 Rules</span>
+            <span class="badge">🤗 Hugging Face Dataset</span>
+        </div>
+
+        <div class="hero-buttons">
+
+            <a class="btn btn-primary"
+                href="https://github.com/Justsecret123/Imag-Eval">
+                GitHub
+            </a>
+
+            <a class="btn btn-secondary"
+                href="#leaderboard">
+                ection>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>⚙️ Evaluation Settings</h2>
+
+            <div class="settings">
+
+                <div class="setting">
+                    <strong>Benchmark</strong>
+                    All Skills
+                </div>
+
+                <div class="setting">
+                    <strong>Skills</strong>
+                    Counting + Spatial + Size + Color + Emotion + Text + Cohesiveness
+                </div>
+
+                <div class="setting">
+                    <strong>Resolution</strong>
+                    1024 × 1024
+                </div>
+
+                <div class="setting">
+                    <strong>Annotation Type</strong>
+                    Manual
+                </div>
+
+                <div class="setting">
+                    <strong>Seed</strong>
+                    42
+                </div>
+
+                <div class="setting">
+                    <strong>Inference</strong>
+                    From model documentation
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card" id="leaderboard">
+
+            <h2>🏆 Leaderboard</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model</th>
+                            <th>Counting</th>
+                            <th>Spatial</th>
+                            <th>Size</th>
+                            <th>Emotion</th>
+                            <th>Color</th>
+                            <th>Cohesiveness</th>
+                            <th>Text (WER ↓)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="leaderboard-body"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📊 Evaluated Skills</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill">🔢 Counting</div>
+                <div class="skill">📍 Spatial Relations</div>
+                <div class="skill">📏 Size Relations</div>
+                <div class="skill">🎨 Color Attribution</div>
+                <div class="skill">😊 Emotion Attribution</div>
+                <div class="skill">🔤 Text Rendering</div>
+                <div class="skill">🧩 Cohesiveness</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        IMAG-EVAL • EMNLP 2026
+    </footer>
+
+    <script>
+
+        fetch("leaderboard.json")
+            .then(response => response.json())
+            .then(data => {
+
+                const body = document.getElementById("leaderboard-body");
+
+                data.forEach((row, index) => {
+
+                    const tr = document.createElement("tr");
+
+                    if (index === 0) tr.classList.add("gold");
+                    else if (index === 1) tr.classList.add("silver");
+                    else if (index === 2) tr.classList.add("bronze");
+
+                    tr.innerHTML = `
+                        <td>${row.rank}</td>
+                        <td><strong>${row.model}</strong></td>
+                        <td>${row.counting}</td>
+                        <td>${row.spatial}</td>
+                        <td>${row.size}</td>
+                        <td>${row.emotion}</td>
+                        <td>${row.color}</td>
+                        <td>${row.cohesiveness}</td>
+                        <td>${row.wer}</td>
+                    `;
+
+                    body.appendChild(tr);
+
+                });
+            });
+
+    </script>
+
+</body>
+</html>
