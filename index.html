@@ -3,18 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>IMAG-EVAL Leaderboard</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&
+https://fonts.googleapis.com
+https://fonts.gstatic.com
+https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap
 
 <style>
+
 :root{
-    --primary:#4f46e5;
+    --primary:#6366f1;
+    --secondary:#8b5cf6;
+
     --bg:#f8fafc;
     --card:#ffffff;
-    --text:#111827;
-    --muted:#6b7280;
-    --border:#e5e7eb;
+
+    --text:#0f172a;
+    --muted:#64748b;
+
+    --border:#e2e8f0;
+
+    --shadow:
+        0 10px 25px rgba(15,23,42,.08),
+        0 2px 8px rgba(15,23,42,.04);
 }
 
 *{
@@ -23,63 +35,129 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Inter,sans-serif;
     background:var(--bg);
     color:var(--text);
+    font-family:'Inter',sans-serif;
     line-height:1.6;
 }
 
+/* HERO */
+
 .hero{
-    background:linear-gradient(135deg,#4f46e5,#7c3aed);
-    color:white;
-    padding:80px 20px;
     text-align:center;
+    padding:120px 20px;
+
+    background:
+        radial-gradient(circle at top left,#c7d2fe 0%,transparent 40%),
+        radial-gradient(circle at top right,#ddd6fe 0%,transparent 35%),
+        linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:white;
 }
 
 .hero h1{
-    font-size:3rem;
-    margin-bottom:10px;
+    font-size:4rem;
+    font-weight:800;
+    letter-spacing:-2px;
 }
 
 .hero p{
-    opacity:0.95;
-    font-size:1.15rem;
+    margin-top:10px;
+    font-size:1.2rem;
+    opacity:.95;
 }
 
+.hero-badges{
+    margin-top:25px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    margin:4px;
+
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+
+    font-size:.9rem;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:600;
+    margin:5px;
+}
+
+.btn-primary{
+    background:white;
+    color:#4f46e5;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.15);
+    color:white;
+}
+
+/* CONTAINER */
+
 .container{
-    max-width:1300px;
+    max-width:1400px;
     margin:auto;
     padding:40px 20px;
 }
 
+/* CARDS */
+
 .card{
-    background:var(--card);
-    border-radius:16px;
-    padding:24px;
-    margin-bottom:24px;
-    box-shadow:0 4px 20px rgba(0,0,0,.05);
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
 }
 
-h2{
+.card h2{
     margin-bottom:15px;
 }
 
+/* SETTINGS */
+
 .settings{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:15px;
 }
 
 .setting{
-    background:#f3f4f6;
-    padding:15px;
-    border-radius:10px;
+    border:1px solid var(--border);
+    background:#f8fafc;
+    border-radius:14px;
+    padding:16px;
 }
 
 .setting strong{
+    color:var(--primary);
     display:block;
     margin-bottom:5px;
+}
+
+/* TABLE */
+
+.table-wrapper{
+    overflow:auto;
 }
 
 table{
@@ -87,82 +165,144 @@ table{
     border-collapse:collapse;
 }
 
-th{
+thead th{
+
     background:#eef2ff;
-    padding:14px;
+    position:sticky;
+    top:0;
+
+    z-index:10;
+}
+
+th{
+    padding:16px;
     text-align:center;
+    font-weight:700;
 }
 
 td{
     padding:14px;
     text-align:center;
-    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
 }
 
 .gold{
-    background:rgba(255,215,0,0.12);
+    background:rgba(255,215,0,.12);
 }
 
 .silver{
-    background:rgba(192,192,192,0.12);
+    background:rgba(192,192,192,.12);
 }
 
 .bronze{
-    background:rgba(205,127,50,0.12);
+    background:rgba(205,127,50,.12);
 }
 
 .best{
+    color:var(--primary);
     font-weight:700;
-    color:#4f46e5;
 }
 
-.metric{
+/* SKILLS */
+
+.skills-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:15px;
 }
 
-.metric div{
+.skill{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px;
     background:#f8fafc;
-    padding:15px;
-    border-radius:10px;
+    transition:.2s;
 }
+
+.skill:hover{
+    transform:translateY(-3px);
+}
+
+.skill span{
+    margin-right:8px;
+}
+
+/* FOOTER */
 
 .footer{
     text-align:center;
     color:var(--muted);
-    margin-top:30px;
-    padding-bottom:40px;
+    padding:40px;
 }
 
-a{
-    color:#4f46e5;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
-}
+/* MOBILE */
 
 @media(max-width:900px){
-    table{
-        font-size:0.85rem;
-    }
-}
-</style>
 
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    table{
+        font-size:.85rem;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
 <section class="hero">
+
     <h1>IMAG-EVAL</h1>
-    <p>Leaderboard for Interpretable Text-to-Image Instruction Following Evaluation</p>
+
+    <p>
+        Interpretable Text-to-Image Instruction Following Evaluation
+    </p>
+
+    <div class="hero-badges">
+        <span class="badge">🏆 EMNLP 2026</span>
+        <span class="badge">📊 1,140 Prompts</span>
+        <span class="badge">🔬 8,842 Rules</span>
+        <span class="badge">🤗 Hugging Face Dataset</span>
+    </div>
+
+    <div class="hero-buttons">
+
+        <a class="btn btn-primary"
+           href="https://github.com/Justsecret123/Imag-Eval">
+            GitHub Repository
+        </a>
+
+        #leaderboard
+            View Leaderboard
+        </a>
+
+    </div>
+
 </section>
 
 <div class="container">
 
+    <!-- SETTINGS -->
+
     <div class="card">
-        <h2>📊 Evaluation Settings</h2>
+
+        <h2>⚙️ Evaluation Settings</h2>
 
         <div class="settings">
 
@@ -172,7 +312,7 @@ a:hover{
             </div>
 
             <div class="setting">
-                <strong>Skills</strong>
+                <strong>Evaluated Skills</strong>
                 Counting + Spatial + Size + Color + Emotion + Text + Cohesiveness
             </div>
 
@@ -192,16 +332,21 @@ a:hover{
             </div>
 
             <div class="setting">
-                <strong>Inference Parameters</strong>
-                Default values reported in each model's technical documentation
+                <strong>Inference Settings</strong>
+                Model defaults reported in technical documentation
             </div>
 
         </div>
+
     </div>
 
-    <div class="card">
+    <!-- LEADERBOARD -->
+
+    <div class="card" id="leaderboard">
 
         <h2>🏆 Leaderboard</h2>
+
+        <div class="table-wrapper">
 
         <table>
 
@@ -223,7 +368,7 @@ a:hover{
 
             <tr class="gold">
                 <td>🥇</td>
-                <td><b>Gemini-Flash-3.1-preview</b></td>
+                <td><strong>Gemini-Flash-3.1-preview</strong></td>
                 <td class="best">0.70</td>
                 <td>0.73</td>
                 <td class="best">0.85</td>
@@ -235,7 +380,7 @@ a:hover{
 
             <tr class="silver">
                 <td>🥈</td>
-                <td><b>Z-Image-Turbo</b></td>
+                <td><strong>Z-Image-Turbo</strong></td>
                 <td>0.55</td>
                 <td class="best">0.79</td>
                 <td>0.84</td>
@@ -247,7 +392,7 @@ a:hover{
 
             <tr class="bronze">
                 <td>🥉</td>
-                <td><b>FLUX 1.0</b></td>
+                <td><strong>FLUX 1.0</strong></td>
                 <td>0.56</td>
                 <td>0.69</td>
                 <td>0.62</td>
@@ -294,40 +439,58 @@ a:hover{
             </tr>
 
             </tbody>
+
         </table>
 
+        </div>
+
     </div>
+
+    <!-- SKILLS -->
 
     <div class="card">
 
         <h2>🧠 Evaluated Skills</h2>
 
-        <div class="metric">
-            <div>🔢 Counting</div>
-            <div>📍 Spatial Relations</div>
-            <div>📏 Size Relations</div>
-            <div>🎨 Color Attribution</div>
-            <div>😊 Emotion Attribution</div>
-            <div>🔤 Text Rendering</div>
-            <div>🧩 Cohesiveness</div>
+        <div class="skills-grid">
+
+            <div class="skill"><span>🔢</span>Counting</div>
+            <div class="skill"><span>📍</span>Spatial Relations</div>
+            <div class="skill"><span>📏</span>Size Relations</div>
+            <div class="skill"><span>🎨</span>Color Attribution</div>
+            <div class="skill"><span>😊</span>Emotion Attribution</div>
+            <div class="skill"><span>🔤</span>Text Rendering</div>
+            <div class="skill"><span>🧩</span>Cohesiveness</div>
+
         </div>
 
     </div>
 
+    <!-- SUBMISSIONS -->
+
     <div class="card">
+
         <h2>📨 Submit Results</h2>
 
         <p>
-            Submit new model results via GitHub Pull Request.
-            Please report model version, inference settings, generated images,
-            and evaluation outputs.
+            To add a new model to the leaderboard, open a GitHub Pull Request
+            containing:
         </p>
+
+        <ul style="margin-left:20px;margin-top:10px;">
+            <li>Model name and version</li>
+            <li>Generation settings</li>
+            <li>Generated images</li>
+            <li>Evaluation outputs</li>
+            <li>Reproducibility information</li>
+        </ul>
+
     </div>
 
-    <div class="footer">
-        Built with ❤️ for the IMAG-EVAL benchmark • EMNLP 2026
-    </div>
+</div>
 
+<div class="footer">
+    IMAG-EVAL • EMNLP 2026 • Interpretable Text-to-Image Evaluation
 </div>
 
 </body>
