@@ -31,6 +31,7 @@
         <span class="badge">📊 1,140 Prompts</span>
         <span class="badge">🔬 8,842 Rules</span>
         <span class="badge">🤗 Hugging Face Dataset</span>
+        <span class="badge">📄 arXiv</span>
     </div>
 
     <div class="hero-buttons">
@@ -38,13 +39,28 @@
         <a class="btn btn-primary"
            href="https://github.com/Justsecret123/Imag-Eval"
            target="_blank">
-            GitHub Repository
+            💻 GitHub
         </a>
+
+        <a class="btn btn-secondary"
+           href="https://huggingface.co/datasets/JustSecret/Imag-Eval"
+           target="_blank">
+            🤗 Dataset
+        </a>
+
+        <a class="btn btn-secondary"
+           href="https://arxiv.org/pdf/2608.29210"
+           target="_blank">
+            📄 Paper
+        </a>
+
     </div>
 
 </section>
 
 <div class="container">
+
+    <!-- Evaluation Settings -->
 
     <div class="card">
 
@@ -78,17 +94,25 @@
             </div>
 
             <div class="setting">
-                <strong>Inference</strong>
-                Model defaults reported in technical documentation
+                <strong>Inference Settings</strong>
+                Default values reported in the corresponding model documentation
             </div>
 
         </div>
 
     </div>
 
+    <!-- Leaderboard -->
+
     <div class="card" id="leaderboard">
 
         <h2>🏆 Leaderboard</h2>
+
+        <p style="margin-bottom:20px;color:#64748b;">
+            Results reported on the IMAG-EVAL benchmark using the
+            <strong>All Skills</strong> setting
+            (Counting, Spatial, Size, Color, Emotion, Text, and Cohesiveness).
+        </p>
 
         <div class="table-container">
 
@@ -116,6 +140,8 @@
 
     </div>
 
+    <!-- Skills -->
+
     <div class="card">
 
         <h2>📊 Evaluated Skills</h2>
@@ -134,10 +160,50 @@
 
     </div>
 
+    <!-- Benchmark Description -->
+
+    <div class="card">
+
+        <h2>📖 About IMAG-EVAL</h2>
+
+        <p>
+            IMAG-EVAL is a controlled benchmark designed to evaluate instruction-following
+            capabilities in Text-to-Image generation models. Unlike existing benchmarks that
+            primarily vary prompt length, IMAG-EVAL independently manipulates the number of
+            grounded instances and compositional constraints, enabling fine-grained analysis
+            of multimodal instruction following.
+        </p>
+
+    </div>
+
 </div>
 
 <footer>
-    IMAG-EVAL • EMNLP 2026
+
+    <p>
+        IMAG-EVAL • EMNLP 2026
+    </p>
+
+    <p style="margin-top:10px;">
+
+        <a href="https://github.com/Justsecret123/Imag-Eval" target="_blank">
+            GitHub
+        </a>
+
+        •
+
+        <a href="https://huggingface.co/datasets/JustSecret/Imag-Eval" target="_blank">
+            Dataset
+        </a>
+
+        •
+
+        <a href="https://arxiv.org/pdf/2608.29210" target="_blank">
+            Paper
+        </a>
+
+    </p>
+
 </footer>
 
 <script>
