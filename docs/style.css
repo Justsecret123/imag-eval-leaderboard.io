@@ -7,19 +7,19 @@ body{
 
 .hero{
     text-align:center;
-    padding:100px 20px;
+    padding:40px 20px;
 
     background:
-            linear-gradient(
-            135deg,
-            #6366f1,
-            #7c3aed);
+        linear-gradient(
+        135deg,
+        #6366f1,
+        #7c3aed);
 
     color:white;
 }
 
 .hero h1{
-    font-size:4rem;
+    font-size:3rem;
     margin:0;
 }
 
